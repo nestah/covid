@@ -1,0 +1,267 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>WebPage</title>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <link href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" rel="stylesheet"/>
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" rel="stylesheet">
+    <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+          integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+          rel="stylesheet"/>
+    <link href="./styles.css" rel="stylesheet">
+    <style>
+      html, body {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+      }
+      #map {
+        /* configure the size of the map */
+        padding: 0px;
+        margin: 15px;
+        height: 85%;
+      }
+
+    </style>
+</head>
+<body>
+<div style="background-color: #B6B6B4;">
+
+    <section class="header1"> <a href="">WEB MAPPING</a> </section>
+    <section class="sub-title">COVID CASES IN KENYA COUNTIES SAMPLE</section>
+    
+    <style>
+
+        .header1{
+            color:aliceblue;
+            margin-top: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 28px;  
+            background-color: #5b657b;
+            
+        }
+        .sub-title{
+            
+            color:#fc6D6D;
+            margin-top: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 25px; 
+        }
+          
+.body {
+background-color: #5b657b;
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+margin: 0px;
+background-color: var(--body-color);
+color: var(--text-color);
+} 
+         .header1 :hover{
+            color:orange;
+            font-weight: bold;
+        }
+        a{
+            color: #dcdde0;
+        }
+        .rights{ 
+            display:flex;
+            flex-direction:row;
+           list-style: none;
+           align-items: center;
+           justify-content: center;
+           margin-top: 2rem;
+            }
+
+            .footer{
+                color:white;
+                background-color:#3d9885;
+                min-height: 30vh;
+                margin-top: 1.5rem;
+                font-size: 18px;
+                
+            }
+            .content_footer {
+                display:flex;
+                flex-direction:row;
+               list-style: none;
+               margin-top: 1rem;
+                
+                
+            }
+            .footer__title {
+                display:flex;
+                flex-direction:row;
+               list-style: none;
+               margin-top: 1rem;
+              }
+           
+          /* For medium devices */
+        @media screen and (max-width: 676px) {
+          
+            .content_footer {
+              grid-template-columns: repeat(1, 1fr);
+              justify-content: center;
+              align-items: flex-start;
+              gap: 1.5rem;
+            }
+          
+            .footer__container {
+              grid-template-columns: repeat(2, 1fr);
+            }
+          }
+          .container {
+            max-width: 1024px;
+            margin-left: var(--mb-1-5);
+            margin-right: var(--mb-1-5);
+          }
+    </style>
+</div>
+
+
+<iframe style="background: #F1F5F4;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" width="100%" height="480" src="https://charts.mongodb.com/charts-project-0-pzeir/embed/dashboards?id=5823456a-8459-48a4-8140-8bee81e91ff2&theme=light&autoRefresh=true&maxDataAge=3600&showTitleAndDesc=false&scalingWidth=fixed&scalingHeight=fixed"></iframe>
+<section>
+    <h3>Serving this data from a json file</h3>
+    <div id="Data"></div>
+        <script>
+       fetch('./data.json')
+         .then(function(response) {
+            return response.json();
+         })
+    .then(function(data){
+        for(var i=0; i<data.length; i++){
+            document.getElementById('Data').innerHTML +=
+            data[i].id + ":" + data[i].firstName + ":" + data[i].lastName  + "<br/>"
+        
+        }
+    })
+
+    .catch(function(err){
+        console.log(err)
+    })
+
+        </script>
+</section>
+</body>
+
+ <!--==================== FOOTER ====================-->
+ <footer class="footer section" id="footer">
+    <div class="footer__container container grid">
+        <div class="footer__content">
+            <h3 class="footer__title">Contributers</h3>
+
+            <ul class="footer__list">
+                <li>Leafet Api</li>
+                <li>    
+                
+                    <a onclick="window.alert('This is the made with Vscode IDE')" href="" class="footer__link">Check IDE</a>
+
+                 </li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="footer__content">
+            <h3 class="footer__title">Authors</h3>
+
+            <ul class="footer__links">
+                <li>
+                    <a onclick="window.alert('This is the author: PHESTUS')" href="" class="footer__link">Check Authors</a>
+                </li>
+                <li>
+                    <a onclick="window.alert('This is my registration no:ENC222-0118/2019')" href="" class="footer__link">Registration no.</a>
+                </li>
+              
+               
+            </ul>
+        </div>
+
+        <div class="footer__content">
+            <h3 class="footer__title">Marginal information</h3>
+
+            <ul class="footer__links">
+                <li>
+                    <a onclick="window.alert('This is the marginal info: zoom:10X')" href="" class="footer__link">Zoom level</a>
+                </li>
+                <li>
+                    <a onclick="window.alert('This is the marginal info: email me @ phestuskitsao359@gmail.com')" href="#" class="footer__link">Contact Us</a>
+                </li>
+               
+                
+            </ul>
+        </div>
+               </div>
+   
+    <span class="rights">&#169; 2022 | All rigths reserved</span>
+</footer>
+
+   
+    <style>
+        /*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --header-height: 3.5rem;
+
+  /*========== Colors ==========*/
+  --first-color: black;
+  --button-color: hsl(0, 0%, 17%);
+  --button-color-alt: hsl(0, 0%, 21%);
+  --title-color: hsl(0, 0%, 15%);
+  --text-color: hsl(0, 0%, 35%);
+  --text-color-light: hsl(0, 0%, 55%);
+  --body-color: hsl(0, 0%, 99%);
+  --container-color: #fff;
+  --border-color: hsl(0, 0%, 94%);
+
+  /*========== Font and typography ==========*/
+  --body-font: 'Roboto', sans-serif;
+  --biggest-font-size: 2rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --normal-font-size: .938rem;
+  --small-font-size: .813rem;
+  --smaller-font-size: .75rem;
+
+  /*========== Font weight ==========*/
+  --font-medium: 500;
+  --font-bold: 700;
+
+  /*========== Margenes Bottom ==========*/
+  --mb-0-5: .5rem;
+  --mb-0-75: .75rem;
+  --mb-1: 1rem;
+  --mb-1-5: 1.5rem;
+  --mb-2: 2rem;
+  --mb-2-5: 2.5rem;
+  --mb-3: 3rem;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+@media screen and (min-width: 968px) {
+  :root {
+    --biggest-font-size: 2.5rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --h5-font-size:3rem;
+    --normal-font-size: 1rem;
+    --small-font-size: .875rem;
+    --smaller-font-size: .813rem;
+  }
+}
+
+    </style>
+
+
+</html>
